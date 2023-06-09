@@ -8,22 +8,50 @@
 
 puts "Cadastrando moedas...."
 
-Coin.create!(
-    description: "Bitcoin",
-    acronym: "BTC",
-    url_image: "https://as1.ftcdn.net/v2/jpg/01/88/16/50/1000_F_188165041_C4LeZPJhrtGSy1hRRk0w77K4b2zA9nUB.jpg"
-)
+coins = [
+          { 
+            description: "Bitcoin",
+            acronym: "BTC",
+            url_image: "https://as1.ftcdn.net/v2/jpg/01/88/16/50/1000_F_188165041_C4LeZPJhrtGSy1hRRk0w77K4b2zA9nUB.jpg"
+          },
+          {
+            description: "Etherum",
+            acronym: "ETH",
+            url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/471px-Ethereum_logo_2014.svg.png"
+          },
+          {
+            description: "Dash",
+            acronym: "Dash",
+            url_image: "https://logowik.com/content/uploads/images/dash9065.jpg"
+          }
+        ]
 
-Coin.create!(
-    description: "Etherum",
-    acronym: "ETH",
-    url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/471px-Ethereum_logo_2014.svg.png"
-)
+coins.each do |coin|
+  Coin.find_or_crate_by!(coin)
+end
 
+
+
+=begin
 Coin.create!(
-    description: "Dash",
-    acronym: "Dash",
-    url_image: "https://logowik.com/content/uploads/images/dash9065.jpg"
+    [
+      { 
+        description: "Bitcoin",
+        acronym: "BTC",
+        url_image: "https://as1.ftcdn.net/v2/jpg/01/88/16/50/1000_F_188165041_C4LeZPJhrtGSy1hRRk0w77K4b2zA9nUB.jpg"
+      },
+      {
+        description: "Etherum",
+        acronym: "ETH",
+        url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/471px-Ethereum_logo_2014.svg.png"
+      },
+      {
+        description: "Dash",
+        acronym: "Dash",
+        url_image: "https://logowik.com/content/uploads/images/dash9065.jpg"
+      }
+    ]
 )
+=end
 
 puts "Moedas cadastradas com sucesso!"
