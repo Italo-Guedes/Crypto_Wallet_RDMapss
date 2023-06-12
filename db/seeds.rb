@@ -8,6 +8,7 @@
 
 puts "Cadastrando moedas...."
 
+
 coins = [
           { 
             description: "Bitcoin",
@@ -27,8 +28,9 @@ coins = [
         ]
 
 coins.each do |coin|
-  Coin.find_or_crate_by!(coin)
+  Coin.find_or_create_by!(coin)
 end
+
 
 
 
@@ -53,5 +55,6 @@ Coin.create!(
     ]
 )
 =end
+
 
 puts "Moedas cadastradas com sucesso!"
