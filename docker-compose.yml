@@ -1,0 +1,21 @@
+version: '3'
+services:
+  # db:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_PASSWORD: mysecretpassword
+  #   volumes:
+  #     - ./postgres:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"    
+  web:
+    image: ${DOCKER_IMAGE_NAME-crypto_wallet}
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    # depends_on:
+    #   - db
