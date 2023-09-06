@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :users_group do
+    get 'welcome/index'
+  end
+  devise_for :users
   resources :mining_types
   get 'welcome/index'#, to: 'welcome#index' não precisa colocar pois é repetido
   #get '/inicio', to: 'welcome#index'
